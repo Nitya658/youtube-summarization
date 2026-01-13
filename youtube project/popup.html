@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>YouTube Transcript Summariser</title>
+        <style>
+            /* Basic Tailwind-like reset/styling for a modern look */
+            body {
+                font-family: 'Inter', sans-serif;
+                width: 350px; /* Fixed width for better appearance */
+                padding: 15px;
+                background-color: #f8f8f8;
+            }
+            h1 {
+                text-align: center;
+                font-size: 1.25rem;
+                color: #2c3e50;
+                margin-bottom: 15px;
+            }
+            #url-container {
+                margin-bottom: 15px;
+            }
+            #video-url {
+                width: 100%;
+                padding: 8px 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-sizing: border-box; /* Include padding and border in the element's total width and height */
+            }
+            #summarise {
+                background-color: #ff0000; /* YouTube Red */
+                color: white;
+                border: none;
+                border-radius: 5px;
+                width: 100%;
+                padding: 10px;
+                font-size: 1rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: background-color 0.2s;
+            }
+            #summarise:hover:not([disabled]) {
+                background-color: #cc0000;
+            }
+            #summarise[disabled] {
+                background-color: #ff9999;
+                cursor: not-allowed;
+            }
+            #output {
+                margin-top: 20px;
+                padding: 10px;
+                border-top: 1px solid #eee;
+                font-size: 0.9rem;
+                color: #333;
+                word-wrap: break-word; /* Essential for long summaries */
+            }
+            p {
+                margin: 5px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>YouTube Summariser</h1>
+        
+        <div id="url-container">
+            <label for="video-url" style="display: block; margin-bottom: 5px; font-size: 0.9rem;">Paste YouTube Video Link:</label>
+            <input type="text" id="video-url" placeholder="e.g., https://www.youtube.com/watch?v=..." />
+        </div>
+
+        <button id="summarise" type="button">Summarise</button>
+        
+        <!-- Output area for the summary or error messages -->
+        <div id="output">
+            <p style='color: #6c757d; font-style: italic;'>Enter a link and click 'Summarise' to begin.</p>
+        </div>
+        
+        <script src="popup.js"></script>
+    </body>
+</html>
